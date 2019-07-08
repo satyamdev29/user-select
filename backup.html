@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chips Input</title>
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="root">
+
+    </div>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+        const users = [
+    {id: 1, img:'./img/male.png', name:'satyam', email:'satya@gmail.com'},
+    {id: 2, img:'./img/male.png', name:'Sundram', email:'sundram@gmail.com'},
+    {id: 3, img:'./img/male.png', name:'Vinay', email:'vinay@gmail.com'},
+    {id: 4, img:'./img/male.png', name:'Vikas', email:'vikas@gmail.com'}
+    ]
+
+    const ele = (
+        <section className="chips__input">
+        <input type="text" name="txtChipsInput" id="txtChipsInput" placeholder="Search user"/>
+        <div className="chips__input_lists">
+            <ul className="chips__input_lists-items">
+                {
+                users.map(function(user, index){
+                    return (
+                        <li className="chips__input_lists-item" key={`${user.id}`}>
+                            <img src={user.img}/>
+                            <span className="chips__input_lists-item--name">{user.name}</span>
+                            <span className="chips__input_lists-item--email">{user.email}</span>
+                        </li>
+                        )
+                    }) 
+                }
+            </ul>
+        </div>
+    </section>
+        )
+        ReactDOM.render(ele, rootHandle)
+    </script>
+
+    <!-- <script src="./js/script.js"></script> -->
+</body>
+</html>
